@@ -1,0 +1,1066 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Peluquería de Felipe</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Jost:wght@300;400;500;600;700&display=swap">
+<style>
+  /* ---------------------------------------------------------------
+     Peluquería de Felipe — diseño elegante y minimalista
+     Paleta: blanco roto / negro carbón + acento dorado discreto
+     Tipografía: Fraunces (titulares con carácter) + Jost (cuerpo)
+     Layout: página de una columna, mucho aire, mobile-first
+     --------------------------------------------------------------- */
+  :root{
+    --bg:#F7F4EE;
+    --surface:#FFFFFF;
+    --fg:#221F1A;
+    --muted:#6E675C;
+    --accent:#A9875A;
+    --accent-soft:#E7DBC2;
+    --border:rgba(34,31,26,.13);
+    --shadow:0 20px 50px -30px rgba(34,31,26,.35);
+
+    --font-display:"Fraunces", Georgia, "Times New Roman", serif;
+    --font-body:"Jost", "Helvetica Neue", Arial, sans-serif;
+
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17140F;
+      --surface:#201C15;
+      --fg:#F3EFE5;
+      --muted:#AA9F8B;
+      --accent:#CCAC71;
+      --accent-soft:#39301F;
+      --border:rgba(243,239,229,.14);
+      --shadow:0 20px 50px -28px rgba(0,0,0,.6);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17140F;
+    --surface:#201C15;
+    --fg:#F3EFE5;
+    --muted:#AA9F8B;
+    --accent:#CCAC71;
+    --accent-soft:#39301F;
+    --border:rgba(243,239,229,.14);
+    --shadow:0 20px 50px -28px rgba(0,0,0,.6);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--fg);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+  }
+
+  img{max-width:100%;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:var(--font-display); font-weight:500; margin:0; text-wrap:balance;}
+  p{margin:0;}
+  ul{margin:0; padding:0; list-style:none;}
+  button{font-family:inherit;}
+
+  .wrap{
+    width:100%;
+    max-width:1120px;
+    margin-inline:auto;
+    padding-inline:clamp(18px, 5vw, 48px);
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:.6em;
+    font-size:.74rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:600;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px;
+    height:1px;
+    background:var(--accent);
+    display:inline-block;
+  }
+
+  .section-head{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    max-width:640px;
+    margin-bottom:clamp(32px, 6vw, 56px);
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 4.4vw, 2.7rem);
+    letter-spacing:-.01em;
+  }
+  .section-head p{
+    color:var(--muted);
+    font-size:1.02rem;
+    max-width:52ch;
+  }
+
+  section{
+    padding-block:clamp(56px, 10vw, 104px);
+    scroll-margin-top:84px;
+  }
+  section + section{border-top:1px solid var(--border);}
+
+  /* ---------- Botones ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.55em;
+    padding:.95em 1.9em;
+    border-radius:999px;
+    font-family:var(--font-body);
+    font-size:.92rem;
+    font-weight:600;
+    letter-spacing:.03em;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease, border-color .25s ease;
+    white-space:nowrap;
+  }
+  .btn:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+  .btn-primary{
+    background:var(--fg);
+    color:var(--bg);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:var(--shadow);}
+  .btn-outline{
+    background:transparent;
+    color:var(--fg);
+    border-color:var(--border);
+  }
+  .btn-outline:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-2px);}
+  .btn-small{padding:.72em 1.4em; font-size:.82rem;}
+
+  /* ---------- Cabecera ---------- */
+  header{
+    position:sticky;
+    top:env(safe-area-inset-top, 0px);
+    z-index:40;
+    background:color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, background-color .3s ease;
+  }
+  header.is-scrolled{border-bottom-color:var(--border);}
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-block:16px;
+    gap:16px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--fg);
+  }
+  .brand svg{width:26px; height:26px; color:var(--accent); flex-shrink:0;}
+  .brand-name{
+    font-family:var(--font-display);
+    font-size:1.12rem;
+    letter-spacing:.01em;
+  }
+  .brand-name em{font-style:italic; color:var(--accent); font-weight:400;}
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:clamp(18px, 2.4vw, 34px);
+  }
+  .nav-links a{
+    font-size:.92rem;
+    text-decoration:none;
+    color:var(--muted);
+    position:relative;
+    padding-block:4px;
+    transition:color .2s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--fg);}
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-2px;
+    height:1px;
+    background:var(--accent);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .25s ease;
+  }
+  .nav-links a:hover::after{transform:scaleX(1);}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
+
+  .burger{
+    display:none;
+    width:42px; height:42px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:var(--surface);
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  .burger span, .burger span::before, .burger span::after{
+    content:"";
+    display:block;
+    width:16px; height:1.5px;
+    background:var(--fg);
+    position:relative;
+    transition:transform .25s ease, opacity .25s ease, top .25s ease;
+  }
+  .burger span::before{position:absolute; top:-6px;}
+  .burger span::after{position:absolute; top:6px;}
+  .burger[aria-expanded="true"] span{background:transparent;}
+  .burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg); top:0;}
+  .burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg); top:0;}
+
+  .mobile-nav{
+    position:fixed;
+    inset:0;
+    z-index:50;
+    background:var(--bg);
+    display:flex;
+    flex-direction:column;
+    padding:env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+    transform:translateY(-100%);
+    transition:transform .35s ease;
+  }
+  .mobile-nav.is-open{transform:translateY(0);}
+  .mobile-nav-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px clamp(18px, 5vw, 48px);
+  }
+  .mobile-nav-links{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:clamp(18px, 4vh, 30px);
+    padding:0 clamp(18px, 5vw, 48px);
+  }
+  .mobile-nav-links a{
+    font-family:var(--font-display);
+    font-size:clamp(1.9rem, 8vw, 2.6rem);
+    text-decoration:none;
+    color:var(--fg);
+  }
+  .mobile-nav-links a em{color:var(--accent); font-style:normal;}
+  .mobile-nav-foot{
+    padding:0 clamp(18px, 5vw, 48px) clamp(28px, 6vh, 44px);
+  }
+
+  @media (max-width: 760px){
+    .nav-links{display:none;}
+    .burger{display:flex;}
+    .nav-cta .btn-small{padding:.65em 1.2em; font-size:.78rem;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding-top:clamp(64px, 11vw, 110px);
+    padding-bottom:clamp(64px, 11vw, 110px);
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:
+      radial-gradient(70% 55% at 85% 0%, var(--accent-soft), transparent 70%),
+      radial-gradient(55% 45% at 0% 100%, var(--accent-soft), transparent 70%);
+    opacity:.8;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .8fr;
+    gap:clamp(32px, 6vw, 64px);
+    align-items:center;
+  }
+  .hero-copy{display:flex; flex-direction:column; gap:22px;}
+  .hero-copy h1{
+    font-size:clamp(2.6rem, 7vw, 4.4rem);
+    line-height:1.04;
+    letter-spacing:-.01em;
+  }
+  .hero-copy h1 em{font-style:italic; color:var(--accent); font-weight:400;}
+  .hero-tagline{
+    font-size:clamp(1.02rem, 1.6vw, 1.18rem);
+    color:var(--muted);
+    max-width:46ch;
+  }
+  .hero-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:8px;}
+  .hero-meta{
+    display:flex;
+    gap:clamp(20px, 3vw, 36px);
+    margin-top:18px;
+    flex-wrap:wrap;
+  }
+  .hero-meta div{display:flex; flex-direction:column; gap:3px;}
+  .hero-meta strong{font-family:var(--font-display); font-size:1.5rem; font-weight:500;}
+  .hero-meta span{font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);}
+
+  .hero-art{
+    position:relative;
+    aspect-ratio:3/4;
+    border-radius:28px;
+    background:
+      linear-gradient(155deg, var(--accent-soft), var(--surface) 55%, var(--accent-soft)),
+      repeating-linear-gradient(135deg, color-mix(in srgb, var(--fg) 5%, transparent) 0 2px, transparent 2px 26px);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .hero-art::after{
+    content:"Peluquería de Felipe";
+    position:absolute;
+    left:22px; bottom:22px;
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:1.1rem;
+    color:var(--fg);
+    opacity:.55;
+  }
+  .hero-art svg{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:38%;
+    color:var(--fg);
+    opacity:.16;
+  }
+
+  @media (max-width: 860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{aspect-ratio:16/10; order:-1;}
+  }
+
+  /* ---------- Servicios ---------- */
+  .service-category{margin-bottom:clamp(36px, 6vw, 54px);}
+  .service-category:last-child{margin-bottom:0;}
+  .category-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:22px;
+  }
+  .category-icon{
+    width:40px; height:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--accent-soft);
+    color:var(--accent);
+    flex-shrink:0;
+  }
+  .category-icon svg{width:18px; height:18px;}
+  .category-head h3{font-size:1.3rem;}
+
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+    gap:16px;
+  }
+  .service-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    min-width:0;
+    transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  }
+  .service-card:hover{border-color:var(--accent); transform:translateY(-3px); box-shadow:var(--shadow);}
+  .service-top{display:flex; justify-content:space-between; align-items:baseline; gap:12px;}
+  .service-name{font-family:var(--font-display); font-size:1.08rem; font-weight:500;}
+  .service-price{
+    font-family:var(--font-display);
+    font-size:1.08rem;
+    color:var(--accent);
+    white-space:nowrap;
+    font-variant-numeric:tabular-nums;
+  }
+  .service-desc{color:var(--muted); font-size:.92rem; flex:1;}
+  .service-duration{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:.76rem;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .service-duration svg{width:13px; height:13px;}
+
+  /* ---------- Sobre nosotros ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:clamp(32px, 6vw, 64px);
+    align-items:center;
+  }
+  .about-art{
+    aspect-ratio:4/5;
+    border-radius:24px;
+    background:linear-gradient(165deg, var(--accent-soft), var(--surface) 60%);
+    border:1px solid var(--border);
+    position:relative;
+    overflow:hidden;
+  }
+  .about-art::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:repeating-linear-gradient(115deg, color-mix(in srgb, var(--fg) 4%, transparent) 0 1px, transparent 1px 22px);
+  }
+  .about-art svg{
+    position:absolute;
+    bottom:-10%; right:-10%;
+    width:62%;
+    color:var(--accent);
+    opacity:.28;
+  }
+  .about-copy{display:flex; flex-direction:column; gap:18px;}
+  .about-copy h2{font-size:clamp(1.9rem, 4.4vw, 2.7rem);}
+  .about-copy p{color:var(--muted); font-size:1.02rem; max-width:56ch;}
+  .about-copy p strong{color:var(--fg); font-weight:600;}
+  .about-stats{
+    display:flex;
+    gap:clamp(22px, 4vw, 40px);
+    margin-top:8px;
+    flex-wrap:wrap;
+  }
+  .about-stats div strong{display:block; font-family:var(--font-display); font-size:1.7rem; color:var(--accent); font-weight:500;}
+  .about-stats div span{font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted);}
+
+  @media (max-width: 860px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Horario y ubicación ---------- */
+  .info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .info-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:clamp(24px, 4vw, 34px);
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .info-card-head{display:flex; align-items:center; gap:12px;}
+  .info-card-head svg{width:20px; height:20px; color:var(--accent); flex-shrink:0;}
+  .info-card-head h3{font-size:1.2rem;}
+  .hours-row{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    font-size:.95rem;
+    padding-block:9px;
+    border-bottom:1px solid var(--border);
+  }
+  .hours-row:last-child{border-bottom:none;}
+  .hours-row span:first-child{color:var(--muted);}
+  .hours-row.is-closed span:last-child{color:var(--muted);}
+  .hours-row span:last-child{font-variant-numeric:tabular-nums; font-weight:500;}
+  address{font-style:normal; color:var(--muted); font-size:.98rem; line-height:1.7;}
+  address strong{display:block; color:var(--fg); font-family:var(--font-display); font-size:1.1rem; font-weight:500; margin-bottom:4px;}
+  .map-art{
+    aspect-ratio:16/9;
+    border-radius:14px;
+    background:
+      linear-gradient(135deg, var(--accent-soft), var(--surface)),
+      repeating-linear-gradient(90deg, color-mix(in srgb, var(--fg) 5%, transparent) 0 1px, transparent 1px 34px),
+      repeating-linear-gradient(0deg, color-mix(in srgb, var(--fg) 5%, transparent) 0 1px, transparent 1px 34px);
+    border:1px solid var(--border);
+    position:relative;
+  }
+  .map-art svg{position:absolute; top:50%; left:50%; transform:translate(-50%,-55%); width:30px; height:30px; color:var(--accent);}
+
+  @media (max-width: 760px){
+    .info-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Contacto ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+  .contact-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:26px 22px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .contact-card svg{width:22px; height:22px; color:var(--accent);}
+  .contact-card h3{font-size:.95rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); font-family:var(--font-body); font-weight:600;}
+  .contact-card p{font-family:var(--font-display); font-size:1.18rem;}
+  .copy-btn{
+    align-self:flex-start;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:4px;
+    background:none;
+    border:none;
+    padding:0;
+    color:var(--accent);
+    font-size:.82rem;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .copy-btn svg{width:14px; height:14px;}
+
+  .social-row{
+    display:flex;
+    gap:12px;
+    margin-top:clamp(28px, 5vw, 40px);
+  }
+  .social-icon{
+    width:46px; height:46px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:var(--surface);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--fg);
+    cursor:default;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .social-icon:hover{border-color:var(--accent); color:var(--accent);}
+  .social-icon svg{width:18px; height:18px;}
+
+  @media (max-width: 760px){
+    .contact-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- CTA franja ---------- */
+  .cta-strip{
+    background:var(--fg);
+    color:var(--bg);
+  }
+  .cta-strip .wrap{
+    padding-block:clamp(48px, 8vw, 72px);
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:22px;
+  }
+  .cta-strip h2{
+    font-size:clamp(1.8rem, 4.6vw, 2.6rem);
+    color:var(--bg);
+    max-width:18ch;
+  }
+  .cta-strip h2 em{color:var(--accent); font-style:italic; font-weight:400;}
+  .cta-strip .btn-primary{background:var(--accent); color:var(--fg);}
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding-block:32px;
+    border-top:1px solid var(--border);
+  }
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    font-size:.86rem;
+    color:var(--muted);
+  }
+  .footer-inner a{text-decoration:none; color:var(--muted); transition:color .2s ease;}
+  .footer-inner a:hover{color:var(--accent);}
+  .footer-brand{display:flex; align-items:center; gap:8px; color:var(--fg); font-family:var(--font-display); font-size:1rem;}
+  .footer-brand svg{width:16px; height:16px; color:var(--accent);}
+
+  /* ---------- Revelado al hacer scroll ---------- */
+  .reveal{
+    opacity:1;
+    transform:none;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.is-visible{opacity:1; transform:none;}
+  }
+
+  .visually-hidden{
+    position:absolute;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
+</style>
+
+<header id="site-header">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#inicio">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="6" cy="6" r="3"></circle>
+        <circle cx="6" cy="18" r="3"></circle>
+        <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+        <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+        <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+      </svg>
+      <span class="brand-name">Peluquería <em>de Felipe</em></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Sobre nosotros</a>
+      <a href="#horario">Horario</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-small" href="https://api.leadconnectorhq.com/widget/booking/bseAyL1Vnp4zKAzdUqWF" target="_blank" rel="noopener">Reservar cita</a>
+      <button class="burger" id="burger-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mobile-nav-top">
+    <a class="brand" href="#inicio">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="6" cy="6" r="3"></circle>
+        <circle cx="6" cy="18" r="3"></circle>
+        <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+        <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+        <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+      </svg>
+      <span class="brand-name">Peluquería <em>de Felipe</em></span>
+    </a>
+    <button class="burger" id="burger-close" aria-label="Cerrar menú" aria-expanded="true" aria-controls="mobile-nav">
+      <span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav-links" aria-label="Navegación móvil">
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#nosotros">Sobre <em>nosotros</em></a>
+    <a href="#horario">Horario</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <div class="mobile-nav-foot">
+    <a class="btn btn-primary" href="https://api.leadconnectorhq.com/widget/booking/bseAyL1Vnp4zKAzdUqWF" target="_blank" rel="noopener" style="width:100%;">Reservar cita</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- ===================== INICIO / HERO ===================== -->
+  <section id="inicio" class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Peluquería en Valencia</span>
+        <h1>El cuidado de tu pelo, <em>con calma</em> y con criterio.</h1>
+        <p class="hero-tagline">Cortes, color y tratamientos pensados para tu día a día. Un espacio sereno en el centro de Valencia donde cada cita se toma su tiempo.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://api.leadconnectorhq.com/widget/booking/bseAyL1Vnp4zKAzdUqWF" target="_blank" rel="noopener">Reservar cita</a>
+          <a class="btn btn-outline" href="#servicios">Ver servicios</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>12</strong><span>Servicios</span></div>
+          <div><strong>Mar&nbsp;—&nbsp;Sáb</strong><span>10:00 – 20:00</span></div>
+          <div><strong>Valencia</strong><span>Centro</span></div>
+        </div>
+      </div>
+      <div class="hero-art reveal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="6" cy="6" r="3"></circle>
+          <circle cx="6" cy="18" r="3"></circle>
+          <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
+          <line x1="14.47" y1="14.48" x2="20" y2="20"></line>
+          <line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICIOS ===================== -->
+  <section id="servicios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Servicios</span>
+        <h2>Un servicio para cada ocasión</h2>
+        <p>Precios claros y tiempos orientativos, para que sepas exactamente qué esperar antes de reservar.</p>
+      </div>
+
+      <!-- Cortes -->
+      <div class="service-category reveal">
+        <div class="category-head">
+          <span class="category-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle>
+              <line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line>
+            </svg>
+          </span>
+          <h3>Cortes</h3>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Corte mujer</span><span class="service-price">28 €</span></div>
+            <p class="service-desc">Corte a medida adaptado a la forma de tu rostro y a la textura de tu cabello.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>45 min aprox.</span>
+          </article>
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Corte hombre</span><span class="service-price">16 €</span></div>
+            <p class="service-desc">Corte clásico o moderno, con acabado a tijera y máquina.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>30 min aprox.</span>
+          </article>
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Corte + peinado</span><span class="service-price">38 €</span></div>
+            <p class="service-desc">Corte y peinado de salida, listo para cualquier plan del día.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>60 min aprox.</span>
+          </article>
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Corte infantil</span><span class="service-price">12 €</span></div>
+            <p class="service-desc">Corte paciente y tranquilo pensado para los más pequeños.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>25 min aprox.</span>
+          </article>
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Barba + corte</span><span class="service-price">22 €</span></div>
+            <p class="service-desc">Perfilado de barba y corte de pelo en una misma cita.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>40 min aprox.</span>
+          </article>
+        </div>
+      </div>
+
+      <!-- Color -->
+      <div class="service-category reveal">
+        <div class="category-head">
+          <span class="category-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2c3 4 7 8.5 7 12.5a7 7 0 1 1-14 0C5 10.5 9 6 12 2Z"></path>
+            </svg>
+          </span>
+          <h3>Color</h3>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Tinte raíz</span><span class="service-price">45 €</span></div>
+            <p class="service-desc">Retoque de color en la raíz para mantener el tono uniforme.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>60 min aprox.</span>
+          </article>
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Mechas</span><span class="service-price">75 €</span></div>
+            <p class="service-desc">Mechas tradicionales para aportar luz y profundidad al color.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>120 min aprox.</span>
+          </article>
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Balayage</span><span class="service-price">110 €</span></div>
+            <p class="service-desc">Degradado de color pintado a mano, con efecto natural y luminoso.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>150 min aprox.</span>
+          </article>
+        </div>
+      </div>
+
+      <!-- Tratamientos -->
+      <div class="service-category reveal">
+        <div class="category-head">
+          <span class="category-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3c3 2.5 7 6.2 7 10.5A7 7 0 0 1 5 13.5C5 9.2 9 5.5 12 3Z"></path>
+              <path d="M12 9v5"></path>
+            </svg>
+          </span>
+          <h3>Tratamientos</h3>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Alisado keratina</span><span class="service-price">120 €</span></div>
+            <p class="service-desc">Alisado que nutre la fibra capilar y controla el encrespamiento.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>180 min aprox.</span>
+          </article>
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Tratamiento hidratante</span><span class="service-price">30 €</span></div>
+            <p class="service-desc">Mascarilla intensiva para cabello seco, poroso o castigado.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>30 min aprox.</span>
+          </article>
+        </div>
+      </div>
+
+      <!-- Especiales -->
+      <div class="service-category reveal">
+        <div class="category-head">
+          <span class="category-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path>
+            </svg>
+          </span>
+          <h3>Especiales</h3>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Peinado de evento</span><span class="service-price">55 €</span></div>
+            <p class="service-desc">Recogidos y ondas para bodas, graduaciones y otras celebraciones.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>60 min aprox.</span>
+          </article>
+          <article class="service-card">
+            <div class="service-top"><span class="service-name">Permanente</span><span class="service-price">65 €</span></div>
+            <p class="service-desc">Ondas duraderas con productos suaves de última generación.</p>
+            <span class="service-duration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>120 min aprox.</span>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOBRE NOSOTROS ===================== -->
+  <section id="nosotros">
+    <div class="wrap about-grid">
+      <div class="about-art reveal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3c3 2.5 7 6.2 7 10.5A7 7 0 0 1 5 13.5C5 9.2 9 5.5 12 3Z"></path>
+        </svg>
+      </div>
+      <div class="about-copy reveal">
+        <span class="eyebrow">Sobre nosotros</span>
+        <h2>Un salón pensado para ir con calma</h2>
+        <p>Peluquería de Felipe nació de una idea sencilla: <strong>una buena cita no debería sentirse apresurada</strong>. Cada corte, color o tratamiento se planifica con tiempo, escuchando primero lo que necesita tu pelo y lo que buscas tú.</p>
+        <p>Trabajamos con productos de calidad, técnicas actualizadas y, sobre todo, con la cercanía de un equipo pequeño que te conoce por tu nombre. El resultado: un servicio profesional en un espacio tranquilo, en pleno centro de Valencia.</p>
+        <div class="about-stats">
+          <div><strong>+10</strong><span>años de oficio</span></div>
+          <div><strong>12</strong><span>servicios</span></div>
+          <div><strong>1</strong><span>equipo cercano</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HORARIO Y UBICACIÓN ===================== -->
+  <section id="horario">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Horario y ubicación</span>
+        <h2>Te esperamos de martes a sábado</h2>
+        <p>Reserva con antelación para asegurar tu hora, sobre todo los fines de semana.</p>
+      </div>
+      <div class="info-grid reveal">
+        <div class="info-card">
+          <div class="info-card-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg>
+            <h3>Horario</h3>
+          </div>
+          <div>
+            <div class="hours-row"><span>Lunes</span><span>Cerrado</span></div>
+            <div class="hours-row"><span>Martes — Sábado</span><span>10:00 – 20:00</span></div>
+            <div class="hours-row is-closed"><span>Domingo</span><span>Cerrado</span></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-11.5a7 7 0 1 0-14 0C5 14.5 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.4"></circle></svg>
+            <h3>Ubicación</h3>
+          </div>
+          <address>
+            <strong>Peluquería de Felipe</strong>
+            Calle Ejemplo 12<br>
+            46001 Valencia
+          </address>
+          <div class="map-art" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-11.5a7 7 0 1 0-14 0C5 14.5 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.4"></circle></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section id="contacto">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contacto</span>
+        <h2>Hablamos cuando quieras</h2>
+        <p>Escríbenos, llámanos o resérvanos tu cita directamente desde el botón.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8 7 15 15 15l2-4-6-2-2 2a12 12 0 0 1-5-5l2-2-2-6-4 2Z"></path></svg>
+          <h3>Teléfono</h3>
+          <p>+34 600 000 000</p>
+          <button class="copy-btn" data-copy="+34 600 000 000" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg>
+            <span class="copy-label">Copiar número</span>
+          </button>
+        </div>
+        <div class="contact-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+          <h3>Email</h3>
+          <p style="font-size:1.02rem; word-break:break-word;">hola@peluqueriadefelipe.es</p>
+          <button class="copy-btn" data-copy="hola@peluqueriadefelipe.es" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path></svg>
+            <span class="copy-label">Copiar email</span>
+          </button>
+        </div>
+        <div class="contact-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-11.5a7 7 0 1 0-14 0C5 14.5 12 21 12 21Z"></path><circle cx="12" cy="9.5" r="2.4"></circle></svg>
+          <h3>Dirección</h3>
+          <p style="font-size:1.02rem;">Calle Ejemplo 12, Valencia</p>
+        </div>
+      </div>
+
+      <div class="social-row reveal" aria-label="Redes sociales (ejemplo, sin enlaces reales)">
+        <span class="social-icon" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1"></circle></svg>
+          <span class="visually-hidden">Instagram (ejemplo)</span>
+        </span>
+        <span class="social-icon" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 8h2V4h-2a4 4 0 0 0-4 4v2H9v4h2v6h4v-6h2.5l.5-4H15V8.5c0-.3.2-.5.5-.5Z"></path></svg>
+          <span class="visually-hidden">Facebook (ejemplo)</span>
+        </span>
+        <span class="social-icon" title="TikTok">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5c.2 0 .4 0 .5.03"></path><path d="M14 4c0 2.5 2 4.5 4.5 4.5"></path></svg>
+          <span class="visually-hidden">TikTok (ejemplo)</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA FINAL ===================== -->
+  <section class="cta-strip">
+    <div class="wrap">
+      <h2>¿Lista o listo para tu <em>próxima cita</em>?</h2>
+      <a class="btn btn-primary" href="https://api.leadconnectorhq.com/widget/booking/bseAyL1Vnp4zKAzdUqWF" target="_blank" rel="noopener">Reservar cita ahora</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span class="footer-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+      Peluquería de Felipe
+    </span>
+    <span>© <span id="year">2026</span> Peluquería de Felipe. Todos los derechos reservados.</span>
+    <a href="#inicio">Volver arriba ↑</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // Año del footer
+  var yearEl = document.getElementById("year");
+  if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+  // Cabecera con sombra/fondo al hacer scroll
+  var header = document.getElementById("site-header");
+  function onScroll(){
+    if(window.scrollY > 8){ header.classList.add("is-scrolled"); }
+    else{ header.classList.remove("is-scrolled"); }
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  // Menú móvil
+  var mobileNav = document.getElementById("mobile-nav");
+  var burgerBtn = document.getElementById("burger-btn");
+  var burgerClose = document.getElementById("burger-close");
+
+  function openMenu(){
+    mobileNav.classList.add("is-open");
+    burgerBtn.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+  function closeMenu(){
+    mobileNav.classList.remove("is-open");
+    burgerBtn.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+  burgerBtn.addEventListener("click", openMenu);
+  burgerClose.addEventListener("click", closeMenu);
+  mobileNav.querySelectorAll("a").forEach(function(link){
+    link.addEventListener("click", closeMenu);
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){ closeMenu(); }
+  });
+
+  // Copiar al portapapeles (teléfono / email)
+  document.querySelectorAll(".copy-btn").forEach(function(btn){
+    var label = btn.querySelector(".copy-label");
+    var original = label ? label.textContent : "";
+    btn.addEventListener("click", function(){
+      var text = btn.getAttribute("data-copy") || "";
+      function done(ok){
+        if(!label) return;
+        label.textContent = ok ? "¡Copiado!" : original;
+        setTimeout(function(){ label.textContent = original; }, 1800);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(false); });
+      } else {
+        done(false);
+      }
+    });
+  });
+
+  // Revelado suave de secciones al hacer scroll
+  if("IntersectionObserver" in window){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:"0px 0px -40px 0px"});
+    document.querySelectorAll(".reveal").forEach(function(el){ observer.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("is-visible"); });
+  }
+})();
+</script>
+
+</body></html>
